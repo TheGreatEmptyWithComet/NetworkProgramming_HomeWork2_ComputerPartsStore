@@ -1,0 +1,54 @@
+﻿<Window x:Class="ClientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonBase">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Margin" Value="5 5 0 5"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonBaseVisible" BasedOn="{StaticResource ButtonBase}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=partsDataGrid, Path=SelectedIndex}" Value="-1">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Margin" Value="5 5 0 5"/>
+        </Style>
+
+
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Header -->
+        <TextBlock Text="Computer parts client:" DockPanel.Dock="Top" FontWeight="Bold" Margin="5 5 0 0"/>
+
+        <!-- Log message -->
+        <TextBlock Text="{Binding ComputerStoreClient.StatusMessage}" DockPanel.Dock="Top" Margin="5 5 5 5" TextWrapping="WrapWithOverflow"/>
+        
+        <!-- Command buttons -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="Connect to the server" Command="{Binding ConnectToTheServerCommand}" Style="{DynamicResource ButtonBase}"/>
+            <Button Content="Get parts list" Command="{Binding GetComputerPartsListCommand}" Style="{DynamicResource ButtonBase}"/>
+            <Button Content="Get part price" Command="{Binding GetComputerPartPriceCommand}" CommandParameter="{Binding ElementName=partsDataGrid, Path=SelectedIndex}" Style="{DynamicResource ButtonBaseVisible}"/>
+        </StackPanel>
+
+        <!-- Computer parts list  -->
+        <DataGrid x:Name="partsDataGrid" ItemsSource="{Binding ComputerStoreClient.ComputerParts}" DockPanel.Dock="Top" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" Margin="5 0 5 0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Computer part name" Binding="{Binding Path=Name}" Width="auto"/>
+                <DataGridTextColumn Header="Computer part price" Binding="{Binding Path=Price}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </DockPanel>
+</Window>

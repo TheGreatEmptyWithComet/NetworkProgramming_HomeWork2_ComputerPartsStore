@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "Motherboard Asus ROG STRIX B760-A",
+    "Price": 9999.0
+  },
+  {
+    "Name": "Motherboard Gigabyte B450",
+    "Price": 3499.0
+  },
+  {
+    "Name": "Processor Intel Core i5-12400F",
+    "Price": 6549.0
+  },
+  {
+    "Name": "Processor AMD Ryzen 7 5700X",
+    "Price": 7799.0
+  },
+  {
+    "Name": "RAM Kingston Fury DDR4-3200 16384MB",
+    "Price": 1799.0
+  },
+  {
+    "Name": "RAM Kingston Fury DDR4-3200 32768MB",
+    "Price": 3200.0
+  },
+  {
+    "Name": "Videocard ASUS PCI-Ex GeForce RTX 4060",
+    "Price": 13999.0
+  },
+  {
+    "Name": "Videocard Gigabyte PCI-Ex GeForce RTX 4070",
+    "Price": 29999.0
+  },
+  {
+    "Name": "SSD Kingston NV2 1TB M.2 2280 NVMe PCIe 4.0 x4",
+    "Price": 2259.0
+  },
+  {
+    "Name": "SSD Samsung 870 QVO 1TB 2.5 V-NAND 4bit MLC (QLC)",
+    "Price": 2499.0
+  },
+  {
+    "Name": "Powerblock Chieftec GPS-700A8 700 W",
+    "Price": 2219.0
+  },
+  {
+    "Name": "Powerblock MSI MAG A650BN 650W",
+    "Price": 2299.0
+  }
+]
